@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/buryyy/litedb.automapper/badge)](https://www.codefactor.io/repository/github/buryyy/litedb.automapper)
 ## LiteBDMapper
 
 LiteDBMapper is an easy-to-use library for [LiteDB](https://github.com/mbdavid/LiteDB), you can easily setup a local database and store with of just 2 lines of code.
