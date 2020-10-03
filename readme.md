@@ -1,4 +1,4 @@
-#LiteBDMapper
+## LiteBDMapper
 
 LiteDBMapper is an easy-to-use library for LiteDB, you can easily setup a local database and store with of just 2 lines of code.
 
