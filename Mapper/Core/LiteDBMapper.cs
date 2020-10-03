@@ -11,7 +11,7 @@ namespace Mapper.Core
         /// In .NET Core the hashcodes of objects are not immutable/consistent,
         /// we must have strategy for handling of the keys for the .NET Core.
         /// </summary>
-        private const string DefaultStorageName = @"Storage.db";
+        private const string DefaultDbFile = @"Storage.db";
 
         private readonly LiteDatabase _database;
         private readonly string _collectionName;
@@ -31,7 +31,7 @@ namespace Mapper.Core
         /// <param name="connectionString"></param>
         public LiteDBMapper(string collection, string connectionString = null)
         {
-            _database = new LiteDatabase(string.IsNullOrEmpty(connectionString) ? DefaultStorageName : connectionString);
+            _database = new LiteDatabase(string.IsNullOrEmpty(connectionString) ? DefaultDbFile : connectionString);
             _collectionName = collection;
             BsonCollection = (LiteCollection<BsonDocument>)_database.GetCollection(_collectionName);
             Count = _database.GetCollection(_collectionName).Count();
@@ -79,10 +79,8 @@ namespace Mapper.Core
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public bool Contains(TKey key)
-        {
-            return Get(key) != null;
-        }
+        public bool Contains(TKey key) =>
+            Get(key) != null;
 
         /// <summary>
         /// Removes an record by <see cref="TKey"/>. If you need to remove everything try using the <see cref="Clear"/>.
@@ -124,14 +122,10 @@ namespace Mapper.Core
         /// <summary>
         /// Return's a mapped enumerable of <see cref="TValue" />
         /// </summary>
-        public IEnumerable<TValue> Values
-        {
-            get
-            {
-                return BsonCollection.FindAll().Select(document =>
+        public IEnumerable<TValue> Values =>
+            BsonCollection.FindAll().Select(document =>
                     BsonMapper.Global.ToObject<MappedKVPObject<TKey, TValue>>(document).Value);
-            }
-        }
+       
 
         /// <summary>
         /// Clears the collection, calls LiteDB's 'DropCollection'.
@@ -142,14 +136,11 @@ namespace Mapper.Core
             Count = 0;
         }
 
-        internal BsonDocument ToMappedBson(TKey key, TValue value)
-        {
-            return BsonMapper.Global.ToDocument(new MappedKVPObject<TKey, TValue>(key, value));
-        }
+        internal BsonDocument ToMappedBson(TKey key, TValue value) =>
+            BsonMapper.Global.ToDocument(new MappedKVPObject<TKey, TValue>(key, value));
 
-        private string SerializeKey(TKey key)
-        {
-            return Constants.IsNetCore ? JsonConvert.SerializeObject(key) : key.GetHashCode().ToString();
-        }
+        private string SerializeKey(TKey key) => 
+            Constants.IsNetCore ? JsonConvert.SerializeObject(key) : key.GetHashCode().ToString();
+       
     }
 }
