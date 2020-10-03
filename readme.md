@@ -9,7 +9,7 @@ LiteDBMapper is an easy-to-use library for LiteDB, you can easily setup a local 
 ## Connection string
 - The connection string is supplied with the constructor when LiteBDMapper instance is being created, this is the same string as LiteDB's connection string, with same features, see - [LiteDB's connection string](https://github.com/mbdavid/LiteDB/wiki/Connection-String).
 
-##Code examples
+## Code examples
 ```cs
             //Creating instance to LiteDBMapper, it creates the collection "people" if it doesn't exist, connection string is null so it is locally stored to
             //where the application is executing from.
