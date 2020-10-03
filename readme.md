@@ -1,4 +1,4 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/buryyy/litedb.automapper/badge)](https://www.codefactor.io/repository/github/buryyy/litedb.automapper)
+[![Build Status](https://dev.azure.com/kingnakama/LiteDB.AutoMapper/_apis/build/status/LiteDB.AutoMapper?branchName=master)](https://dev.azure.com/kingnakama/LiteDB.AutoMapper/_build/latest?definitionId=6&branchName=master)[![CodeFactor](https://www.codefactor.io/repository/github/buryyy/litedb.automapper/badge)](https://www.codefactor.io/repository/github/buryyy/litedb.automapper)
 ## LiteBDMapper
 
 LiteDBMapper is an easy-to-use library for [LiteDB](https://github.com/mbdavid/LiteDB), you can easily setup a local database and store with of just 2 lines of code.
