@@ -1,6 +1,6 @@
 ## LiteBDMapper
 
-LiteDBMapper is an easy-to-use library for LiteDB, you can easily setup a local database and store with of just 2 lines of code.
+LiteDBMapper is an easy-to-use library for [LiteDB](https://github.com/mbdavid/LiteDB), you can easily setup a local database and store with of just 2 lines of code.
 
 - Manages internally mapping of key and object types, you don't need to worry about it at all.
 - Still access to BsonCollection to access raw bson documents.
